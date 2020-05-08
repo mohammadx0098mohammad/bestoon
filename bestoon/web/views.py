@@ -14,7 +14,7 @@ def submit_income(request):
     """submit income"""
     #TODO: validated data
 
-    this_token = request.POST['token']
+    this_token = request.POST.get('token')
     this_user = User.objects.filter(token__token = this_token).get()
 
     if 'date' not in request.POST:
